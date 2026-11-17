@@ -1,0 +1,19 @@
+$bog_ssr_table_row $mol_view
+	dom_name \tr
+	entry_id \
+	entry_name \
+	href \
+	sub <= cells /
+		<= Id $mol_view
+			dom_name \td
+			sub /
+				<= entry_id
+		<= Name $mol_view
+			dom_name \td
+			sub /
+				<= entry_name
+		<= Link_cell $mol_view
+			dom_name \td
+			sub /
+				<= Link $bog_ssr_link
+					href <= href

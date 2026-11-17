@@ -1,0 +1,12 @@
+$bog_ssr_table $mol_view
+	dom_name \table
+	rows /$bog_ssr_entry
+	base \
+	sub /
+		<= Body $mol_view
+			dom_name \tbody
+			sub <= row_list /
+	Row* $bog_ssr_table_row
+		entry_id <= entry_id* \
+		entry_name <= entry_name* \
+		href <= href* \

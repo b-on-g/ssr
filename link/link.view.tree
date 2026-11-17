@@ -1,0 +1,11 @@
+$bog_ssr_link $mol_view
+	dom_name \a
+	href \
+	attr *
+		^
+		href <= href
+	sub /
+		\View →
+	event *
+		^
+		click? <=> click? null

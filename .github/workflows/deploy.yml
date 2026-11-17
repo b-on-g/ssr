@@ -1,0 +1,29 @@
+name: $bog_ssr
+
+permissions: write-all
+
+on:
+    workflow_dispatch:
+    push:
+    pull_request:
+
+concurrency:
+    group: deploy-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: hyoo-ru/mam_build@master2
+              with:
+                  package: "bog/ssr"
+
+            - name: Prerender pages
+              run: node -e "require('./bog/ssr/-/node.js').\$bog_ssr_static('bog/ssr/-pages','/ssr/').then(()=>process.exit(0),e=>{console.error(e);process.exit(1)})"
+
+            - uses: hyoo-ru/gh-deploy@v4.4.1
+              if: github.ref == 'refs/heads/main'
+              with:
+                  folder: "bog/ssr/-pages"

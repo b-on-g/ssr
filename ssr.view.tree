@@ -1,0 +1,18 @@
+$bog_ssr $mol_view
+	title \$mol SSR
+	path \/
+	detail_id \
+	rows /$bog_ssr_entry
+	client_rows /$bog_ssr_entry
+	sub <= pages /
+	Server $bog_ssr_table
+		rows <= rows
+		base \server-side-rendered/
+	Client $bog_ssr_table
+		rows <= client_rows
+		base \client-side-rendered/
+	Throughput $bog_ssr_table
+		rows <= rows
+	Detail $bog_ssr_detail
+		entry_id <= detail_id
+	Initial $bog_ssr_initial

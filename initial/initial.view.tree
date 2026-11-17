@@ -1,0 +1,84 @@
+$bog_ssr_initial $mol_view
+	dom_name \main
+	attr *
+		^
+		class \performance-page
+	sub /
+		<= Content $mol_view
+			attr *
+				class \performance-content
+			sub /
+				<= Eyebrow $mol_view
+					dom_name \p
+					attr *
+						class \performance-eyebrow
+					sub /
+						\Ecosystem Performance
+				<= Heading $mol_view
+					dom_name \h1
+					sub /
+						\Small steps. Faster experiences.
+				<= Intro $mol_view
+					dom_name \p
+					attr *
+						class \performance-intro
+					sub /
+						\A healthier JavaScript ecosystem starts with the essentials. Explore three ways to make your projects lighter, faster, and easier to maintain.
+				<= Cards $mol_view
+					dom_name \ul
+					attr *
+						class \performance-cards
+					sub /
+						<= Cleanup $bog_ssr_initial_card
+							number \01
+							heading \Cleanup
+							text \Remove unnecessary dependencies and simplify your code to build a leaner foundation.
+							href \https://e18e.dev/learn/cleanup.html
+						<= Speedup $bog_ssr_initial_card
+							number \02
+							heading \Speedup
+							text \Find performance bottlenecks and make the tools you use every day run faster.
+							href \https://e18e.dev/learn/speedup.html
+						<= Levelup $bog_ssr_initial_card
+							number \03
+							heading \Levelup
+							text \Improve your tooling and adopt better practices for a healthier JavaScript ecosystem.
+							href \https://e18e.dev/learn/levelup.html
+
+$bog_ssr_initial_card $mol_view
+	dom_name \li
+	number \
+	heading \
+	text \
+	href \
+	attr *
+		^
+		class \performance-card
+	sub /
+		<= Number $mol_view
+			dom_name \span
+			attr *
+				class \performance-number
+				aria-hidden \true
+			sub /
+				<= number
+		<= Heading $mol_view
+			dom_name \h2
+			sub /
+				<= heading
+		<= Text $mol_view
+			dom_name \p
+			sub /
+				<= text
+		<= Link $mol_view
+			dom_name \a
+			attr *
+				href <= href
+			sub /
+				<= link_title \
+				<= Arrow $mol_view
+					dom_name \span
+					attr *
+						aria-hidden \true
+					sub /
+						\↗
